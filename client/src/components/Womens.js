@@ -56,7 +56,7 @@ function Womens() {
       try {
         const res = await axios.patch("https://radiant-ocean-92179.herokuapp.com/womens", selectedWomen);
         console.log(res.data);
-        getWomen();
+        getWomens();
       } catch(e) {
         console.error(e, e.message);
       }
@@ -64,9 +64,9 @@ function Womens() {
   
     async function deleteWomen (womenId) {
       try {
-        const res = await axios.delete("https://radiant-ocean-92179.herokuapp.com/womens" + womenId);
+        const res = await axios.delete("https://radiant-ocean-92179.herokuapp.com/womens/" + womenId);
         console.log(res.data);
-        getWomen();
+        getWomens();
       } catch(e) {
         console.error(e, e.message);
       }
@@ -150,12 +150,12 @@ function Womens() {
         <h2 className='text shadow'>Womens Inventory</h2>
 
       <div className="women container" key={ women.id }>
-        <h5 className="womenCategory">{women.womenCategory}</h5>
-        <h5 className="womenBrand">{women.womenBrand}</h5>
-        <h5 className="womenLocation">{women.womenLocation}</h5>
+        <h5 className="womenCategory">{women.WomenCategory}</h5>
+        <h5 className="womenBrand">{women.WomenBrand}</h5>
+        <h5 className="womenLocation">{women.WomenLocation}</h5>
         <h5 className="description">{women.description}</h5>
-        <h5 className="womenNumberofItems">{women.womenNumberofItems}</h5>
-        <h5 className="womenInStock">{women.womenInStock}</h5>
+        <h5 className="womenNumberofItems">{women.WomenNumberofItems}</h5>
+        <h5 className="womenInStock">{women.WomenInStock}</h5>
         
          </div>
          

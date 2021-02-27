@@ -3,26 +3,26 @@ import axios from 'axios';
 
 
 function Mens() {
-    const [men, setMen] = useState(null);
+    const [mens, setMens] = useState(null);
   
-    async function getMen() {
+    async function getMens() {
       try {
-        const res = await axios.get("https://radiant-ocean-92179.herokuapp.com/mens");
-        setMen(res.data);
+        const res = await axios.get('https://radiant-ocean-92179.herokuapp.com/mens');
+        setMens(res.data);
       } catch(e) {
         console.error(e, e.message);
       }
     }
   
     useEffect(() => {
-      getMen();
+      getMens();
     }, [])
   
     const [form, setForm] = useState(null);
   
     function handleChange(e) {
-      const { category, value } = e.target;
-      setForm({ ...form, [category]: value });
+      const { name, value } = e.target;
+      setForm({ ...form, [name]: value });
     }
   
     function handleSubmit(e) {
@@ -32,8 +32,8 @@ function Mens() {
   
     async function createMen() {
       try {
-        const res = await axios.post("https://radiant-ocean-92179.herokuapp.com/mens", form);
-        setMen([...men, res.data]);
+        const res = await axios.post('https://radiant-ocean-92179.herokuapp.com/mens', form);
+        setMens([...mens, res.data]);
       } catch(e) {
         console.error(e, e.message);
       }
@@ -46,16 +46,16 @@ function Mens() {
     }
   
     function handleEditChange(e) {
-      const { category, value } = e.target;
-      setSelectedMen({ ...selectedMen, [category]: value });
+      const { name, value } = e.target;
+      setSelectedMen({ ...selectedMen, [name]: value });
     }
   
     async function handleEditSubmit(e) {
       e.preventDefault();
       try {
-        const res = await axios.patch("https://radiant-ocean-92179.herokuapp.com/mens", selectedMen);
+        const res = await axios.patch('https://radiant-ocean-92179.herokuapp.com/mens', selectedMen);
         console.log(res.data);
-        getMen();
+        getMens();
       } catch(e) {
         console.error(e, e.message);
       }
@@ -63,9 +63,9 @@ function Mens() {
   
     async function deleteMen (menId) {
       try {
-        const res = await axios.delete("https://radiant-ocean-92179.herokuapp.com/mens" + menId);
+        const res = await axios.delete('https://radiant-ocean-92179.herokuapp.com/mens/' + menId);
         console.log(res.data);
-        getMen();
+        getMens();
       } catch(e) {
         console.error(e, e.message);
       }
@@ -79,7 +79,7 @@ function Mens() {
         <div>
           <h2>Log New Inventory</h2>
           <form
-            class="log-new-inventory"
+            className="new-inventory-form"
             onChange={ (e) => handleChange(e) }
             onSubmit={ (e) => handleSubmit(e) }>
             <label>
@@ -101,12 +101,13 @@ function Mens() {
             <label>
               Number of Items:
               <input type="integer" name="menNumberofItems"/>
+              </label>
               <label>
               In Stock:
               <input type="boolean" name="menInStock"/>
             </label>
-            </label>
-            <input type="submit" value="Log New Inventory" className="update" />
+            
+            <input type="submit" value="Log New Inventory" className="button-success" />
           </form>
   
           { selectedMen && <form
@@ -136,7 +137,7 @@ function Mens() {
               In Stock:
               <input type="text" name="menInStock" defaultValue={ selectedMen.menInStock} />
             </label>
-            <input className="update" type="submit" value="Log New Inventory" />
+            <input className="select-button" type="submit" value="Update Inventory" />
           </form> }
         </div>
       </div>
