@@ -1,0 +1,23 @@
+body{
+   background-color: rgb(221, 206, 215);
+  background-image: url(./components/stuff.png);
+  font-style: oblique;
+  background-size: 70% 95%;
+  background-position: right;
+  background-repeat: no-repeat;
+
+  }
+
+  
+  ul{
+    list-style-type: none;
+    
+}
+
+#header{
+  font-style: oblique;
+}
+
+
+
+
