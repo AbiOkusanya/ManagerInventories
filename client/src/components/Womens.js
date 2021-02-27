@@ -21,8 +21,9 @@ function Womens() {
     const [form, setForm] = useState(null);
   
     function handleChange(e) {
-      const { category, value } = e.target;
-      setForm({ ...form, [category]: value });
+      const { name, value } = e.target;
+      setForm({ ...form, [name]: value });
+      console.log(value)
     }
   
     function handleSubmit(e) {
@@ -41,13 +42,13 @@ function Womens() {
   
     const [selectedWomen, setSelectedWomen] = useState(null);
   
-    function selectWomen(Women) {
+    function selectWomen(women) {
       setSelectedWomen(women)
     }
   
     function handleEditChange(e) {
-      const { category, value } = e.target;
-      setSelectedWomen({ ...selectedWomen, [category]: value });
+      const { name, value } = e.target;
+      setSelectedWomen({ ...selectedWomen, [name]: value });
     }
   
     async function handleEditSubmit(e) {
@@ -130,7 +131,7 @@ function Womens() {
             </label>
             <label>
               Number of Items:
-              <input type="text" name="womenNumberofItems" defaultValue={ selectedWomen.womenNumberofItems} />
+              <input type="text" name="womenNumberofItems" defaultValue={ selectedWomen.numberofItems} />
             </label>
             <label>
               In Stock:
