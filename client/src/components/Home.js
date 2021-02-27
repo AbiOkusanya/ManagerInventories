@@ -7,7 +7,7 @@ function Homes() {
   
     async function getHomes() {
       try {
-        const res = await axios.get("http://localhost:8080/homes");
+        const res = await axios.get(" https://radiant-ocean-92179.herokuapp.com/homes");
         setHomes(res.data);
       } catch(e) {
         console.error(e, e.message);
@@ -32,7 +32,7 @@ function Homes() {
   
     async function createHome() {
       try {
-        const res = await axios.post("http://localhost:8080/homes", form);
+        const res = await axios.post(" https://radiant-ocean-92179.herokuapp.com/homes", form);
         setHomes([...homes, res.data]);
       } catch(e) {
         console.error(e, e.message);
@@ -53,7 +53,7 @@ function Homes() {
     async function handleEditSubmit(e) {
       e.preventDefault();
       try {
-        const res = await axios.patch("http://localhost:8080/homes", selectedHome);
+        const res = await axios.patch(" https://radiant-ocean-92179.herokuapp.com/homes", selectedHome);
         console.log(res.data);
         getHomes();
       } catch(e) {
@@ -63,7 +63,7 @@ function Homes() {
   
     async function deleteHome(homeId) {
       try {
-        const res = await axios.delete("http://localhost:8080/homes" + homeId);
+        const res = await axios.delete(" https://radiant-ocean-92179.herokuapp.com/homes" + homeId);
         console.log(res.data);
         getHomes();
       } catch(e) {

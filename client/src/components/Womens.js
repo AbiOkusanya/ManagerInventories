@@ -7,7 +7,7 @@ function Womens() {
   
     async function getWomen() {
       try {
-        const res = await axios.get("http://localhost:8080/womens");
+        const res = await axios.get("https://radiant-ocean-92179.herokuapp.com/womens");
         setWomen(res.data);
       } catch(e) {
         console.error(e, e.message);
@@ -32,7 +32,7 @@ function Womens() {
   
     async function createWomen() {
       try {
-        const res = await axios.post("http://localhost:8080/womens", form);
+        const res = await axios.post("https://radiant-ocean-92179.herokuapp.com/womens", form);
         setWomen([...women, res.data]);
       } catch(e) {
         console.error(e, e.message);
@@ -53,7 +53,7 @@ function Womens() {
     async function handleEditSubmit(e) {
       e.preventDefault();
       try {
-        const res = await axios.patch("http://localhost:8080/womens", selectedWomen);
+        const res = await axios.patch("https://radiant-ocean-92179.herokuapp.com/womens", selectedWomen);
         console.log(res.data);
         getWomen();
       } catch(e) {
@@ -63,7 +63,7 @@ function Womens() {
   
     async function deleteWomen (womenId) {
       try {
-        const res = await axios.delete("http://localhost:8080/womens" + womenId);
+        const res = await axios.delete("https://radiant-ocean-92179.herokuapp.com/womens" + womenId);
         console.log(res.data);
         getWomen();
       } catch(e) {
