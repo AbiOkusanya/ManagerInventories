@@ -7,7 +7,7 @@ function Mens() {
   
     async function getMen() {
       try {
-        const res = await axios.get(" https://radiant-ocean-92179.herokuapp.com/mens");
+        const res = await axios.get("https://radiant-ocean-92179.herokuapp.com/mens");
         setMen(res.data);
       } catch(e) {
         console.error(e, e.message);
@@ -32,7 +32,7 @@ function Mens() {
   
     async function createMen() {
       try {
-        const res = await axios.post(" https://radiant-ocean-92179.herokuapp.com/mens", form);
+        const res = await axios.post("https://radiant-ocean-92179.herokuapp.com/mens", form);
         setMen([...men, res.data]);
       } catch(e) {
         console.error(e, e.message);
@@ -53,7 +53,7 @@ function Mens() {
     async function handleEditSubmit(e) {
       e.preventDefault();
       try {
-        const res = await axios.patch(" https://radiant-ocean-92179.herokuapp.com/mens", selectedMen);
+        const res = await axios.patch("https://radiant-ocean-92179.herokuapp.com/mens", selectedMen);
         console.log(res.data);
         getMen();
       } catch(e) {
@@ -63,7 +63,7 @@ function Mens() {
   
     async function deleteMen (menId) {
       try {
-        const res = await axios.delete(" https://radiant-ocean-92179.herokuapp.com/mens" + menId);
+        const res = await axios.delete("https://radiant-ocean-92179.herokuapp.com/mens" + menId);
         console.log(res.data);
         getMen();
       } catch(e) {

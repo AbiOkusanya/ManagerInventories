@@ -7,7 +7,7 @@ function Makeups() {
   
     async function getMakeup() {
       try {
-        const res = await axios.get(" https://radiant-ocean-92179.herokuapp.com/makeups");
+        const res = await axios.get("https://radiant-ocean-92179.herokuapp.com/makeups");
         setMakeup(res.data);
       } catch(e) {
         console.error(e, e.message);
@@ -32,7 +32,7 @@ function Makeups() {
   
     async function createMakeup() {
       try {
-        const res = await axios.post(" https://radiant-ocean-92179.herokuapp.com/makeups", form);
+        const res = await axios.post("https://radiant-ocean-92179.herokuapp.com/makeups", form);
         setMakeup([...makeup, res.data]);
       } catch(e) {
         console.error(e, e.message);
@@ -53,7 +53,7 @@ function Makeups() {
     async function handleEditSubmit(e) {
       e.preventDefault();
       try {
-        const res = await axios.patch(" https://radiant-ocean-92179.herokuapp.com/makeups", selectedMakeup);
+        const res = await axios.patch("https://radiant-ocean-92179.herokuapp.com/makeups", selectedMakeup);
         console.log(res.data);
         getMakeup();
       } catch(e) {
@@ -63,7 +63,7 @@ function Makeups() {
   
     async function deleteMakeup(makeupId) {
       try {
-        const res = await axios.delete(" https://radiant-ocean-92179.herokuapp.com/makeups" + makeupId);
+        const res = await axios.delete("https://radiant-ocean-92179.herokuapp.com/makeups" + makeupId);
         console.log(res.data);
         getMakeup();
       } catch(e) {
