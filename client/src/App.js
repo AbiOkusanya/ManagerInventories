@@ -11,8 +11,8 @@ import {
 
 
 import Header from './components/Header';
-import Home from './components/Home';
-import Makeup from './components/Makeup';
+import Home from './components/Homes';
+import Makeup from './components/Makeups';
 import Mens from './components/Mens';
 import Womens from './components/Womens';
 
@@ -35,7 +35,7 @@ import Womens from './components/Womens';
       <div>
        <ul>
         <li>
-           <Link to="/home">Home Inventory</Link>
+           <Link to="/homes">Home Inventory</Link>
            </li>
            <li>
              <Link to="/makeups">Makeup Inventory</Link>
@@ -48,7 +48,7 @@ import Womens from './components/Womens';
           </li>
           </ul>
            <Switch>
-           <Route path="/home">
+           <Route path="/homes">
              <Home />
            </Route>
            <Route path="/makeups">
