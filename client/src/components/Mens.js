@@ -77,7 +77,7 @@ function Mens() {
         { mens && mens.map(men => <Men men={ men } selectMen={ selectMen} deleteMen={ deleteMen } />)}
   
         <div>
-          <h2>Log New Inventory</h2>
+          <h3>Update Inventory Here</h3>
           <form
             className="log-new-inventory"
             onChange={ (e) => handleChange(e) }
