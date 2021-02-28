@@ -130,11 +130,11 @@ function Makeups() {
             </label>
             <label>
               Number of Items:
-              <input type="text" name="makeupNumberofItems" defaultValue={ selectedMakeup.makeupNumberofItems} />
+              <input type="integer" name="makeupNumberofItems" defaultValue={ selectedMakeup.makeupNumberofItems} />
             </label>
             <label>
               In Stock:
-              <input type="text" name="makeupInStock" defaultValue={ selectedMakeup.makeupInStock} />
+              <input type="boolean" name="makeupInStock" defaultValue={ selectedMakeup.makeupInStock} />
             </label>
             <input className="update" type="submit" value="Edit Inventory" />
           </form> }

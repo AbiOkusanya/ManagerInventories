@@ -100,11 +100,11 @@ function Mens() {
             </label>
             <label>
               Number of Items:
-              <input type="text" name="menNumberofItems"/>
+              <input type="integer" name="menNumberofItems"/>
               </label>
               <label>
               In Stock:
-              <input type="text" name="menInStock"/>
+              <input type="boolean" name="menInStock"/>
             
             </label>
             <input type="submit" value="Log New Inventory" className="update" />
@@ -131,13 +131,13 @@ function Mens() {
             </label>
             <label>
               Number of Items:
-              <input type="text" name="menNumberofItems" defaultValue={ selectedMen.menNumberofItems} />
+              <input type="integer" name="menNumberofItems" defaultValue={ selectedMen.menNumberofItems} />
             </label>
             <label>
               In Stock:
-              <input type="text" name="menInStock" defaultValue={ selectedMen.menInStock} />
+              <input type="boolean" name="menInStock" defaultValue={ selectedMen.menInStock} />
             </label>
-            <input className="button" type="submit" value="Edit Inventory" />
+            <input className="update" type="submit" value="Log New Inventory" />
           </form> }
         </div>
       </div>

@@ -41,7 +41,7 @@ function Homes() {
   
     const [selectedHome, setSelectedHome] = useState(null);
   
-    function selectedHome(home) {
+    function selectHome(home) {
       setSelectedHome(home)
     }
   
@@ -61,7 +61,7 @@ function Homes() {
       }
     }
   
-    async function deleteHome(womenId) {
+    async function deleteHome(homeId) {
       try {
         const res = await axios.delete("https://radiant-ocean-92179.herokuapp.com/homes/" + homeId);
         console.log(res.data);
@@ -74,7 +74,7 @@ function Homes() {
     return(
       <div className = "container">
       
-        { homes && homes.map(home=> <Home home={ home } selectedHome={ selectedHome} deleteHome={ deleteHome } />)}
+        { homes && homes.map(home=> <Home home={ home } selectHome={ selectHome} deleteHome={ deleteHome } />)}
   
         <div>
           <h3>Update Inventory Here</h3>
@@ -160,7 +160,7 @@ function Homes() {
          </div>
          
         <button type = "button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark" onClick={ () => selectHome(home) }>Edit Home</button>
-        <button type = "button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark" onClick={ () => deleteWomen(home.id) }>Delete Home</button>
+        <button type = "button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark" onClick={ () => deleteHome(home.id) }>Delete Home</button>
       </div>
     )
   }
