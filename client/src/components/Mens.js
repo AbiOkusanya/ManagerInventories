@@ -73,7 +73,7 @@ function Mens() {
   
     return(
       <div className = "container">
-        <h1>Testing Testing</h1>
+      
         { mens && mens.map(men => <Men men={ men } selectMen={ selectMen} deleteMen={ deleteMen } />)}
   
         <div>
@@ -107,7 +107,7 @@ function Mens() {
               <input type="boolean" name="menInStock"/>
             
             </label>
-            <input type="submit" value="Edit Inventory" className="update" />
+            <input type="submit" value="Log New Inventory" className="update" />
           </form>
   
           { selectedMen && <form
@@ -137,7 +137,7 @@ function Mens() {
               In Stock:
               <input type="text" name="menInStock" defaultValue={ selectedMen.menInStock} />
             </label>
-            <input className="button" type="submit" value="Log New Inventory" />
+            <input className="button" type="submit" value="Edit Inventory" />
           </form> }
         </div>
       </div>
