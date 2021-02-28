@@ -140,6 +140,9 @@ function Mens() {
             <input className="update" type="submit" value="Log New Inventory" />
           </form> }
         </div>
+        <div className="footer">
+        <footer>Created by Abisola Okusanya</footer>
+      </div>
       </div>
     )
   }

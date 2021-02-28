@@ -131,15 +131,18 @@ function Womens() {
             </label>
             <label>
               Number of Items:
-              <input type="text" name="womenNumberofItems" defaultValue={ selectedWomen.numberofItems} />
+              <input type="integer" name="womenNumberofItems" defaultValue={ selectedWomen.numberofItems} />
             </label>
             <label>
               In Stock:
-              <input type="text" name="womenInStock" defaultValue={ selectedWomen.womenInStock} />
+              <input type="boolean" name="womenInStock" defaultValue={ selectedWomen.womenInStock} />
             </label>
             <input className="update" type="submit" value="Log New Inventory" />
           </form> }
         </div>
+        <div className="footer">
+        <footer>Created by Abisola Okusanya</footer>
+      </div>
       </div>
     )
   }

@@ -139,6 +139,9 @@ function Makeups() {
             <input className="update" type="submit" value="Edit Inventory" />
           </form> }
         </div>
+        <div className="footer">
+        <footer>Created by Abisola Okusanya</footer>
+      </div>
       </div>
     )
   }

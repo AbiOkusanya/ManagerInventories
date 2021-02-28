@@ -18,5 +18,10 @@ h1{
   text-align: center;
 }
 
-
+footer{
+  text-align: center;
+  font-size: 12pt;
+  background-image: url(./components/motivation.png);
+  background-position: bottom;
+}
 
