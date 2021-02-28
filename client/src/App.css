@@ -21,7 +21,11 @@ h1{
 footer{
   text-align: center;
   font-size: 12pt;
+}
+
+.footerImg{
   background-image: url(./components/motivation.png);
   background-position: bottom;
+  
 }
 

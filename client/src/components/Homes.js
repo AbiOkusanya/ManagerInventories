@@ -141,6 +141,7 @@ function Homes() {
           </form> }
         </div>
         <div className="footer">
+        <div className ="footerImg"></div>
         <footer>Created by Abisola Okusanya</footer>
       </div>
       </div>
