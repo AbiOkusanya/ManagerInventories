@@ -56,7 +56,7 @@ function Womens() {
       try {
         const res = await axios.patch("https://radiant-ocean-92179.herokuapp.com/womens", selectedWomen);
         console.log(res.data);
-        getWomens();
+        getWomen();
       } catch(e) {
         console.error(e, e.message);
       }
@@ -66,7 +66,7 @@ function Womens() {
       try {
         const res = await axios.delete("https://radiant-ocean-92179.herokuapp.com/womens/" + womenId);
         console.log(res.data);
-        getWomens();
+        getWomen();
       } catch(e) {
         console.error(e, e.message);
       }

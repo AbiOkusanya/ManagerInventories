@@ -7,7 +7,7 @@ function Mens() {
   
     async function getMens() {
       try {
-        const res = await axios.get('https://radiant-ocean-92179.herokuapp.com/mens');
+        const res = await axios.get("https://radiant-ocean-92179.herokuapp.com/mens");
         setMens(res.data);
       } catch(e) {
         console.error(e, e.message);
@@ -32,7 +32,7 @@ function Mens() {
   
     async function createMen() {
       try {
-        const res = await axios.post('https://radiant-ocean-92179.herokuapp.com/mens', form);
+        const res = await axios.post("https://radiant-ocean-92179.herokuapp.com/mens", form);
         setMens([...mens, res.data]);
       } catch(e) {
         console.error(e, e.message);
@@ -53,7 +53,7 @@ function Mens() {
     async function handleEditSubmit(e) {
       e.preventDefault();
       try {
-        const res = await axios.patch('https://radiant-ocean-92179.herokuapp.com/mens', selectedMen);
+        const res = await axios.patch("https://radiant-ocean-92179.herokuapp.com/mens", selectedMen);
         console.log(res.data);
         getMens();
       } catch(e) {
@@ -61,9 +61,9 @@ function Mens() {
       }
     }
   
-    async function deleteMen (menId) {
+    async function deleteMen(menId) {
       try {
-        const res = await axios.delete('https://radiant-ocean-92179.herokuapp.com/mens/' + menId);
+        const res = await axios.delete("https://radiant-ocean-92179.herokuapp.com/mens/" + menId);
         console.log(res.data);
         getMens();
       } catch(e) {
@@ -73,13 +73,13 @@ function Mens() {
   
     return(
       <div className = "container">
-        
-        { men && men.map(men=> <Men men={ men } selectMen={ selectMen} deleteMen={ deleteMen } />)}
+        <h1>Testing Testing</h1>
+        { mens && mens.map(men => <Men men={ men } selectMen={ selectMen} deleteMen={ deleteMen } />)}
   
         <div>
           <h2>Log New Inventory</h2>
           <form
-            className="new-inventory-form"
+            className="log-new-inventory"
             onChange={ (e) => handleChange(e) }
             onSubmit={ (e) => handleSubmit(e) }>
             <label>
@@ -105,9 +105,9 @@ function Mens() {
               <label>
               In Stock:
               <input type="boolean" name="menInStock"/>
-            </label>
             
-            <input type="submit" value="Log New Inventory" className="button-success" />
+            </label>
+            <input type="submit" value="Log New Inventory" className="update" />
           </form>
   
           { selectedMen && <form
@@ -131,13 +131,13 @@ function Mens() {
             </label>
             <label>
               Number of Items:
-              <input type="text" name="menNumberofItems" defaultValue={ selectedMen.menpNumberofItems} />
+              <input type="text" name="menNumberofItems" defaultValue={ selectedMen.menNumberofItems} />
             </label>
             <label>
               In Stock:
               <input type="text" name="menInStock" defaultValue={ selectedMen.menInStock} />
             </label>
-            <input className="select-button" type="submit" value="Update Inventory" />
+            <input className="button" type="submit" value="Log New Inventory" />
           </form> }
         </div>
       </div>
