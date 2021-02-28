@@ -100,11 +100,11 @@ function Mens() {
             </label>
             <label>
               Number of Items:
-              <input type="integer" name="menNumberofItems"/>
+              <input type="text" name="menNumberofItems"/>
               </label>
               <label>
               In Stock:
-              <input type="boolean" name="menInStock"/>
+              <input type="text" name="menInStock"/>
             
             </label>
             <input type="submit" value="Log New Inventory" className="update" />

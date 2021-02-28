@@ -3,26 +3,26 @@ import axios from 'axios';
 
 
 function Makeups() {
-    const [makeup, setMakeup] = useState(null);
+    const [makeups, setMakeups] = useState(null);
   
-    async function getMakeup() {
+    async function getMakeups() {
       try {
         const res = await axios.get("https://radiant-ocean-92179.herokuapp.com/makeups");
-        setMakeup(res.data);
+        setMakeups(res.data);
       } catch(e) {
         console.error(e, e.message);
       }
     }
   
     useEffect(() => {
-      getMakeup();
+      getMakeups();
     }, [])
   
     const [form, setForm] = useState(null);
   
     function handleChange(e) {
-      const { category, value } = e.target;
-      setForm({ ...form, [category]: value });
+      const { name, value } = e.target;
+      setForm({ ...form, [name]: value });
     }
   
     function handleSubmit(e) {
@@ -33,7 +33,7 @@ function Makeups() {
     async function createMakeup() {
       try {
         const res = await axios.post("https://radiant-ocean-92179.herokuapp.com/makeups", form);
-        setMakeup([...makeup, res.data]);
+        setMakeups([...makeups, res.data]);
       } catch(e) {
         console.error(e, e.message);
       }
@@ -46,8 +46,8 @@ function Makeups() {
     }
   
     function handleEditChange(e) {
-      const { category, value } = e.target;
-      setSelectedMakeup({ ...selectedMakeup, [category]: value });
+      const { name, value } = e.target;
+      setSelectedMakeup({ ...selectedMakeup, [name]: value });
     }
   
     async function handleEditSubmit(e) {
@@ -55,7 +55,7 @@ function Makeups() {
       try {
         const res = await axios.patch("https://radiant-ocean-92179.herokuapp.com/makeups", selectedMakeup);
         console.log(res.data);
-        getMakeup();
+        getMakeups();
       } catch(e) {
         console.error(e, e.message);
       }
@@ -63,9 +63,9 @@ function Makeups() {
   
     async function deleteMakeup(makeupId) {
       try {
-        const res = await axios.delete("https://radiant-ocean-92179.herokuapp.com/makeups" + makeupId);
+        const res = await axios.delete("https://radiant-ocean-92179.herokuapp.com/makeups/" + makeupId);
         console.log(res.data);
-        getMakeup();
+        getMakeups();
       } catch(e) {
         console.error(e, e.message);
       }
@@ -74,16 +74,16 @@ function Makeups() {
     return(
       <div className = "container">
          
-        { makeup && makeup.map(makeup=> <Makeup makeup={ makeup } selectMakeup={ selectMakeup } deleteMakeup={ deleteMakeup } />)}
+        { makeups && makeups.map(makeup=> <Makeup makeup={ makeup } selectMakeup={ selectMakeup } deleteMakeup={ deleteMakeup } />)}
   
         <div>
-          <h2>Log New Inventory</h2>
+          <h3>Update Inventory Here</h3>
           <form
-            class="log-new-inventory"
+            className="log-new-inventory"
             onChange={ (e) => handleChange(e) }
             onSubmit={ (e) => handleSubmit(e) }>
             <label>
-              Test:
+              Category:
               <input type="text" name="makeupCategory"/>
             </label>
             <label>
@@ -100,11 +100,11 @@ function Makeups() {
             </label>
             <label>
               Number of Items:
-              <input type="integer" name="makeupNumberofItems"/>
+              <input type="text" name="makeupNumberofItems"/>
+              </label>
               <label>
               In Stock:
-              <input type="boolean" name="makeupInStock"/>
-            </label>
+              <input type="text" name="makeupInStock"/>
             </label>
             <input type="submit" value="Log New Inventory" className="update" />
           </form>
@@ -130,13 +130,13 @@ function Makeups() {
             </label>
             <label>
               Number of Items:
-              <input type="text" name="makeupNumberofItems" defaultValue={ selectedMakeup.hmakeupNumberofItems} />
+              <input type="text" name="makeupNumberofItems" defaultValue={ selectedMakeup.makeupNumberofItems} />
             </label>
             <label>
               In Stock:
               <input type="text" name="makeupInStock" defaultValue={ selectedMakeup.makeupInStock} />
             </label>
-            <input className="update" type="submit" value="Log New Inventory" />
+            <input className="update" type="submit" value="Edit Inventory" />
           </form> }
         </div>
       </div>

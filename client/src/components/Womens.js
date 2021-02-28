@@ -3,19 +3,19 @@ import axios from 'axios';
 
 
 function Womens() {
-    const [women, setWomen] = useState(null);
+    const [womens, setWomens] = useState(null);
   
-    async function getWomen() {
+    async function getWomens() {
       try {
         const res = await axios.get("https://radiant-ocean-92179.herokuapp.com/womens");
-        setWomen(res.data);
+        setWomens(res.data);
       } catch(e) {
         console.error(e, e.message);
       }
     }
   
     useEffect(() => {
-      getWomen();
+      getWomens();
     }, [])
   
     const [form, setForm] = useState(null);
@@ -23,8 +23,7 @@ function Womens() {
     function handleChange(e) {
       const { name, value } = e.target;
       setForm({ ...form, [name]: value });
-      console.log(value)
-    }
+      }
   
     function handleSubmit(e) {
       e.preventDefault();
@@ -34,7 +33,7 @@ function Womens() {
     async function createWomen() {
       try {
         const res = await axios.post("https://radiant-ocean-92179.herokuapp.com/womens", form);
-        setWomen([...women, res.data]);
+        setWomens([...womens, res.data]);
       } catch(e) {
         console.error(e, e.message);
       }
@@ -56,7 +55,7 @@ function Womens() {
       try {
         const res = await axios.patch("https://radiant-ocean-92179.herokuapp.com/womens", selectedWomen);
         console.log(res.data);
-        getWomen();
+        getWomens();
       } catch(e) {
         console.error(e, e.message);
       }
@@ -66,7 +65,7 @@ function Womens() {
       try {
         const res = await axios.delete("https://radiant-ocean-92179.herokuapp.com/womens/" + womenId);
         console.log(res.data);
-        getWomen();
+        getWomens();
       } catch(e) {
         console.error(e, e.message);
       }
@@ -75,25 +74,25 @@ function Womens() {
     return(
       <div className = "container">
       
-        { women && women.map(women=> <Women women={ women } selectWomen={ selectWomen} deleteWomen={ deleteWomen } />)}
+        { womens && womens.map(women=> <Women women={ women } selectWomen={ selectWomen} deleteWomen={ deleteWomen } />)}
   
         <div>
-          <h2>Log New Inventory</h2>
+          <h3>Update Inventory Here</h3>
           <form
-            class="log-new-inventory"
+            className="log-new-inventory"
             onChange={ (e) => handleChange(e) }
             onSubmit={ (e) => handleSubmit(e) }>
             <label>
               Category:
-              <input type="text" name="WomenCategory"/>
+              <input type="text" name="womenCategory"/>
             </label>
             <label>
               Brand:
-              <input type="text" name="WomenBrand"/>
+              <input type="text" name="womenBrand"/>
             </label>
             <label>
               Location:
-              <input type="text" name="WomenLocation"/>
+              <input type="text" name="womenLocation"/>
             </label>
             <label>
               Description:
@@ -101,12 +100,13 @@ function Womens() {
             </label>
             <label>
               Number of Items:
-              <input type="integer" name="WomenNumberofItems"/>
+              <input type="text" name="womenNumberofItems"/>
+              </label>
               <label>
               In Stock:
-              <input type="boolean" name="WomenInStock"/>
+              <input type="text" name="womenInStock"/>
             </label>
-            </label>
+            
             <input type="submit" value="Log New Inventory" className="update" />
           </form>
   
@@ -150,12 +150,12 @@ function Womens() {
         <h2 className='text shadow'>Womens Inventory</h2>
 
       <div className="women container" key={ women.id }>
-        <h5 className="womenCategory">{women.WomenCategory}</h5>
-        <h5 className="womenBrand">{women.WomenBrand}</h5>
-        <h5 className="womenLocation">{women.WomenLocation}</h5>
+        <h5 className="womenCategory">{women.womenCategory}</h5>
+        <h5 className="womenBrand">{women.womenBrand}</h5>
+        <h5 className="womenLocation">{women.womenLocation}</h5>
         <h5 className="description">{women.description}</h5>
-        <h5 className="womenNumberofItems">{women.WomenNumberofItems}</h5>
-        <h5 className="womenInStock">{women.WomenInStock}</h5>
+        <h5 className="womenNumberofItems">{women.womenNumberofItems}</h5>
+        <h5 className="womenInStock">{women.womenInStock}</h5>
         
          </div>
          
