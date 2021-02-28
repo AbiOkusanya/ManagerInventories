@@ -21,9 +21,9 @@ function Homes() {
     const [form, setForm] = useState(null);
   
     function handleChange(e) {
-      const { category, value } = e.target;
-      setForm({ ...form, [category]: value });
-    }
+      const { name, value } = e.target;
+      setForm({ ...form, [name]: value });
+      }
   
     function handleSubmit(e) {
       e.preventDefault();
@@ -41,13 +41,13 @@ function Homes() {
   
     const [selectedHome, setSelectedHome] = useState(null);
   
-    function selectHome(home) {
+    function selectedHome(home) {
       setSelectedHome(home)
     }
   
     function handleEditChange(e) {
-      const { category, value } = e.target;
-      setSelectedHome({ ...selectedHome, [category]: value });
+      const { name, value } = e.target;
+      setSelectedHome({ ...selectedHome, [name]: value });
     }
   
     async function handleEditSubmit(e) {
@@ -61,9 +61,9 @@ function Homes() {
       }
     }
   
-    async function deleteHome(homeId) {
+    async function deleteHome(womenId) {
       try {
-        const res = await axios.delete("https://radiant-ocean-92179.herokuapp.com/homes" + homeId);
+        const res = await axios.delete("https://radiant-ocean-92179.herokuapp.com/homes/" + homeId);
         console.log(res.data);
         getHomes();
       } catch(e) {
@@ -73,13 +73,13 @@ function Homes() {
   
     return(
       <div className = "container">
-         
-        { homes && homes.map(home=> <Home home={ home } selectHome={ selectHome } deleteHome={ deleteHome } />)}
+      
+        { homes && homes.map(home=> <Home home={ home } selectedHome={ selectedHome} deleteHome={ deleteHome } />)}
   
         <div>
-          <h2>Log New Inventory</h2>
+          <h3>Update Inventory Here</h3>
           <form
-            class="log-new-inventory"
+            className="log-new-inventory"
             onChange={ (e) => handleChange(e) }
             onSubmit={ (e) => handleSubmit(e) }>
             <label>
@@ -100,12 +100,13 @@ function Homes() {
             </label>
             <label>
               Number of Items:
-              <input type="integer" name="homeNumberofItems"/>
+              <input type="text" name="homeNumberofItems"/>
+              </label>
               <label>
               In Stock:
-              <input type="boolean" name="homeInStock"/>
+              <input type="text" name="homeInStock"/>
             </label>
-            </label>
+            
             <input type="submit" value="Log New Inventory" className="update" />
           </form>
   
@@ -130,11 +131,11 @@ function Homes() {
             </label>
             <label>
               Number of Items:
-              <input type="text" name="homeNumberofItems" defaultValue={ selectedHome.homeNumberofItems} />
+              <input type="integer" name="homeNumberofItems" defaultValue={ selectedHome.numberofItems} />
             </label>
             <label>
               In Stock:
-              <input type="text" name="homeInStock" defaultValue={ selectedHome.homeInStock} />
+              <input type="boolean" name="homeInStock" defaultValue={ selectedHome.homeInStock} />
             </label>
             <input className="update" type="submit" value="Log New Inventory" />
           </form> }
@@ -148,21 +149,22 @@ function Homes() {
         <div className="Homecontainer">
         <h2 className='text shadow'>Home Inventory</h2>
 
-      <div className="home-container" key={ home.id }>
+      <div className="home container" key={ home.id }>
         <h5 className="homeCategory">{home.homeCategory}</h5>
         <h5 className="homeBrand">{home.homeBrand}</h5>
         <h5 className="homeLocation">{home.homeLocation}</h5>
         <h5 className="description">{home.description}</h5>
         <h5 className="homeNumberofItems">{home.homeNumberofItems}</h5>
-        <h5 className="homehomeInStock">{home.homeInStock}</h5>
+        <h5 className="homeInStock">{home.homeInStock}</h5>
         
          </div>
          
-
         <button type = "button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark" onClick={ () => selectHome(home) }>Edit Home</button>
-        <button type = "button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark" onClick={ () => deleteHome(home.id) }>Delete Home</button>
+        <button type = "button" class="btn btn-outline-secondary" data-mdb-ripple-color="dark" onClick={ () => deleteWomen(home.id) }>Delete Home</button>
       </div>
     )
   }
 
   export default Homes;
+
+  
