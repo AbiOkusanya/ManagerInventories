@@ -107,7 +107,7 @@ function Mens() {
               <input type="boolean" name="menInStock"/>
             
             </label>
-            <input type="submit" value="Log New Inventory" className="update" />
+            <input type="submit" value="Edit Inventory" className="update" />
           </form>
   
           { selectedMen && <form
